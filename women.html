@@ -1,0 +1,185 @@
+\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrifter - Women's Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: black;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        background-color: black;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header input {
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+        width: 200px;
+    }
+    header button {
+        padding: 8px;
+        background-color: #e5e7eb;
+        color: black;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+    header button:hover {
+        background-color: #d1d5db;
+    }
+    header h1 {
+        font-family: 'Gilda Display', serif;
+        font-size: 32px;
+        margin: 0;
+    }
+    header a {
+        color: white;
+        margin-left: 16px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    header a:hover {
+        color: #d1d5db;
+    }
+    .banner {
+        position: relative;
+        height: 400px;
+        background-image: url('https://storage.googleapis.com/a1aa/image/4SllgOGweEyiESNGXFjJ6tkTfvIS9572S4b18a1i0930TqsTA.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    .banner h2 {
+        font-family: 'Gilda Display', serif;
+        font-size: 48px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    .product-card {
+        background-color: #1a1a1a;
+        width: 250px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+    .product-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+    .product-info {
+        padding: 15px;
+    }
+    .product-info h3 {
+        font-family: 'Gilda Display', serif;
+        margin: 0 0 10px 0;
+    }
+    .product-info p {
+        margin: 0;
+    }
+    footer {
+        text-align: center;
+        padding: 32px;
+        background-color: black;
+        color: white;
+    }
+    footer h2 {
+        font-family: 'Gilda Display', serif;
+        font-size: 32px;
+    }
+    footer p {
+        margin-top: 16px;
+        font-size: 24px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="search-bar">
+            <input type="text" placeholder="search" id="search-input">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        <h1><a href="index.html" style="text-decoration: none; color: white;">Thrifter</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Shop now</a></li>
+                <li><a href="#">New arrivals</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <h2>Women's Collection</h2>
+    </div>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://storage.googleapis.com/a1aa/image/zLrPr2hCxn7dMQaocuJCIwE3QMvgKp2ZkWIbDVLUB3myTqsTA.jpg" alt="Women's Floral Dress">
+            <div class="product-info">
+                <h3>Floral Summer Dress</h3>
+                <p>Rs. 1499</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://storage.googleapis.com/a1aa/image/BL5wCQvVS5mCzWZ4dVrx3CHrNvIRBK7iJhgNEOFLAOF7JV2JA.jpg" alt="Denim Jacket">
+            <div class="product-info">
+                <h3>Vintage Denim Jacket</h3>
+                <p>Rs. 1899</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://storage.googleapis.com/a1aa/image/nYkPeM7EvlJCxGtGPYM9L7oiCjRpTfr7RyMW4WGxK2VGnUZnA.jpg" alt="Crop Top">
+            <div class="product-info">
+                <h3>Classic Crop Top</h3>
+                <p>Rs. 699</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://storage.googleapis.com/a1aa/image/KE33Hs0reTwQwxTDmrBXrfyKQvhfHLPfKZgEGZLXxeIKnUZnA.jpg" alt="High-Waist Jeans">
+            <div class="product-info">
+                <h3>High-Waist Jeans</h3>
+                <p>Rs. 1599</p>
+            </div>
+        </div>
+        <!-- Add more product cards as needed -->
+    </div>
+
+    <footer>
+        <h2>Wanna give your garment a second chance??</h2>
+        <p>Sell options Coming Soon.... Only on Thrifter.</p>
+    </footer>
+</body>
+</html>
+</html>

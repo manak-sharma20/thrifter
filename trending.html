@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Section - Thrifter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background-color: black;
+        }
+        header h1 {
+            font-family: 'Gilda Display', serif;
+            font-size: 32px;
+        }
+        .trending-container {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding: 16px;
+            background-color: black;
+            animation: slideIn 0.5s ease forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .trending-item {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .trending-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+        }
+        .trending-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .trending-item:hover .overlay {
+            opacity: 1;
+        }
+        .overlay h3 {
+            color: white;
+            font-size: 24px;
+            font-family: 'Gilda Display', serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trending Section</h1>
+    </header>
+    <section class="trending-container">
+        <div class="trending-item">
+            <img src="https://storage.googleapis.com/a1aa/image/OssN67gjSj7aP1WN5WmoUxgQSiAg6HQFztKUmKM1CeQzJV2JA.jpg" alt="Trending Item 1">
+            <div class="overlay">
+                <h3>Trending Item 1</h3>
+            </div>
+        </div>
+        <div class="trending-item">
+            <img src="https://storage.googleapis.com/a1aa/image/jofhqEFZXNRtaSihfffNhIlA30NXeAuVlPrdnQMTGfx75kK7E.jpg" alt="Trending Item 2">
+            <div class="overlay">
+                <h3>Trending Item 2</h3>
+            </div>
+        </div>
+        <div class="trending-item">
+            <img src="https://storage.googleapis.com/a1aa/image/4SllgOGweEyiESNGXFjJ6tkTfvIS9572S4b18a1i0930TqsTA.jpg" alt="Trending Item 3">
+            <div class="overlay">
+                <h3>Trending Item 3</h3>
+            </div>
+        </div>
+        <div class="trending-item">
+            <img src="https://storage.googleapis.com/a1aa/image/fgVLZg9HS2zNOSXuSLL4RPuMcbZb1ome2TeSTmsqoWpGnUZn A.jpg" alt="Trending Item 4">
+            <div class="overlay">
+                <h3>Trending Item 4</h3>
+            </div>
+        </div>
+        <div class="trending-item">
+            <img src="https://storage.googleapis.com/a1aa/image/7Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5.jpg" alt="Trending Item 5">
+            <div class="overlay">
+                <h3>Trending Item 5</h3>
+            </div>
+        </div>
+        <div class="trending-item">
+            <img src="https://storage.googleapis.com/a1aa/image/8Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5.jpg" alt="Trending Item 6">
+            <div class="overlay">
+                <h3>Trending Item 6</h3>
+            </div>
+        </div>
+        <div class="trending-item">
+            <img src="https://storage.googleapis.com/a1aa/image/9Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5.jpg" alt="Trending Item 7">
+            <div class="overlay">
+                <h3>Trending Item 7</h3>
+            </div>
+        </div>
+        <div class="trending-item">
+            <img src="https://storage.googleapis.com/a1aa/image/10Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5.jpg" alt="Trending Item 8">
+            <div class="overlay">
+                <h3>Trending Item 8</h3>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <h2>Wanna give your garment a second chance??</h2>
+        <p>Sell options Coming Soon.... Only on Thrifter</p>
+    </footer>
+</body>
+</html>

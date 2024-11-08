@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrifter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+    /* Add animation for fade in effect */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Add styles for overlay */
+    .overlay {
+        animation: fadeIn 0.5s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Add styles for card */
+    section.flex-container .card {
+        perspective: 1000px; /* Add perspective for 3D effect */
+        position: relative;
+        width: 300px;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Add styles for card inner */
+    section.flex-container .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    /* Add styles for card hover */
+    section.flex-container .card:hover .card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Add styles for card front and back */
+    section.flex-container .card .card-front,
+    section.flex-container .card .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 8px;
+    }
+
+    /* Add styles for card back */
+    section.flex-container .card .card-back {
+        transform: rotateY(180deg);
+    }
+
+    /* Add transitions for header input and button */
+    header input:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    header button:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    /* Add styles for body */
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: black;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Add styles for header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        background-color: black;
+    }
+
+    /* Add styles for header input */
+    header input {
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+    }
+
+    /* Add styles for header button */
+    header button {
+        padding: 8px;
+        background-color: #e5e7eb;
+        color: black;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Add styles for header button hover */
+    header button:hover {
+        background-color: #d1d5db;
+    }
+
+    /* Add styles for header h1 */
+    header h1 {
+        font-family: 'Gilda Display', serif;
+        font-size: 32px;
+    }
+
+    /* Add styles for header a */
+    header a {
+        color: white;
+        margin-left: 16px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    /* Add styles for header a hover */
+    header a:hover {
+        color: #d1d5db;
+    }
+
+    /* Add styles for relative section */
+    section.relative {
+        position: relative;
+    }
+
+    /* Add styles for relative section img */
+    section.relative img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+    }
+
+    /* Add styles for relative section overlay */
+    section.relative .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    /* Add styles for relative section overlay h2 */
+    section.relative .overlay h2 {
+        font-size: 32px;
+        font-family: 'Gilda Display', serif;
+    }
+
+    /* Add styles for relative section overlay h3 */
+    section.relative .overlay h3 {
+        font-size: 24px;
+        font-family: 'Gilda Display', serif;
+    }
+
+    /* Add styles for flex container section */
+    section.flex-container {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        padding: 16px;
+        background-color: black;
+    }
+
+    /* Add styles for flex container section card */
+    section.flex-container .card {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Add styles for flex container section card hover */
+    section.flex-container .card:hover {
+        transform: scale(1.05);
+    }
+
+    /* Add styles for flex container section card img */
+    section.flex-container .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* Add styles for flex container section card overlay */
+    section.flex-container .card .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+    }
+
+    /* Add styles for flex container section card overlay h3 */
+    section.flex-container .card .overlay h3 {
+        font-size: 24px;
+        font-family: 'Gilda Display', serif;
+    }
+
+    /* Add styles for text center section */
+    section.text-center {
+        text-align: center;
+        padding: 16px;
+        background-color: black;
+    }
+
+    /* Add styles for text center section h2 */
+    section.text-center h2 {
+        font-size: 24px;
+        font-family: 'Gilda Display', serif;
+    }
+
+    /* Add styles for text center section button */
+    section.text-center button {
+        margin-top: 8px;
+        padding: 8px;
+        background-color: #e5e7eb;
+        color: black;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Add styles for text center section button hover */
+    section.text-center button:hover {
+        background-color: #d1d5db;
+    }
+
+    /* Add styles for text center section grid container */
+    section.text-center .grid-container {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 16px;
+    }
+
+    /* Add styles for text center section grid container item */
+    section.text-center .grid-container .item {
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    /* Add styles for text center section grid container item hover */
+    section.text-center .grid-container .item:hover {
+        transform: scale(1.05);
+    }
+
+    /* Add styles for text center section grid container item img */
+    section.text-center .grid-container .item img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* Add styles for footer */
+    footer {
+        text-align: center;
+        padding: 32px;
+        background-color: black;
+    }
+
+    /* Add styles for footer h2 */
+    footer h2 {
+        font-family: 'Gilda Display', serif;
+        font-size: 32px;
+    }
+
+    /* Add styles for footer p */
+    footer p {
+        margin-top: 16px;
+        font-size: 24px;
+    }
+
+    /* Add styles for card a */
+    .card a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Add styles for card a hover */
+    .card a:hover {
+        text-decoration: none;
+    }
+
+    /* Add styles for overlay h3 */
+    .overlay h3 {
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        margin: 0;
+    }
+    /* Add styles for grid container items */
+.grid-container .item {
+    background-color: #1f1f1f; /* Dark background for items */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside the item */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+/* Add hover effect for grid container items */
+.grid-container .item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Add styles for item images */
+.grid-container .item img {
+    border-radius: 8px; /* Rounded corners for images */
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+</style>
+</head>
+<body>
+    <header>
+        <div>
+            <input type="text" placeholder="search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <h1>Thrifter</h1>
+        <div>
+            <a href="#">Shop now</a>
+            <a href="#">New arrivals</a>
+            <a href="#">Contact</a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+    <section class="relative">
+        <img src="https://storage.googleapis.com/a1aa/image/39ZAgkk5PoqAPF9fsxCG2wxsADlsU0P2mIQzwJOxdRF4JV2JA.jpg" alt="Main banner image">
+        <div class="overlay">
+            <h2>Not your Ordinary</h2>
+            <h3>Thrift store</h3>
+        </div>
+    </section>
+    <section class="flex-container">
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                <a href="men.html">
+                    <img src="https://storage.googleapis.com/a1aa/image/jofhqEFZXNRtaSihfffNhIlA30NXeAuVlPrdnQMTGfx75kK7E.jpg" alt="Men's section image" loading="lazy">
+                    <div class="overlay">
+                        <h3>Men</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="card-back">
+                <h3>More about Men's Collection</h3>
+                <p>Discover the latest styles and trends.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                <a href="women.html">
+                    <img src="https://storage.googleapis.com/a1aa/image/4SllgOGweEyiESNGXFjJ6tkTfvIS9572S4b18a1i0930TqsTA.jpg" alt="Women's section image" loading="lazy">
+                    <div class="overlay">
+                        <h3>Women</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="card-back">
+                <h3>More about Women's Collection</h3>
+                <p>Explore our elegant and trendy outfits.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                <a href="trending.html">
+                    <img src="https://storage.googleapis.com/a1aa/image/OssN67gjSj7aP1WN5WmoUxgQSiAg6HQFztKUmKM1CeQzJV2JA.jpg" alt="Trending section image" loading="lazy">
+                    <div class="overlay">
+                        <h3>Trending</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="card-back">
+                <h3>What's Trending Now</h3>
+                <p>Check out the latest trends in fashion.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    
+   
+    
+    
+
+    <section class="text-center">
+        <h2 class="category-title">Categories</h2>
+        <div class="grid-container">
+            <div class="item">
+                <a href="oversized-tshirts.html">
+                    <img src="https://storage.googleapis.com/a1aa/image/sMBnHuy5VFZhCRZst7y8AGd6yBu2zWo3SSPbKI3Emhf0JV2JA.jpg" alt="Oversized T-shirts">
+                    <p>Oversized T-shirts</p>
+                </a>
+            </div>
+            <div class="item">
+                <a href="trendy-baggy.html">
+                    <img src="https://storage.googleapis.com/a1aa/image/QHm0f87RCF0VEyP73UOSrJ8LvYR19C9IepbD94ebmVRdnUZnA.jpg" alt="Trendy Baggy">
+                    <p>Trendy Baggy</p>
+                </a>
+            </div>
+            <div class="item">
+                <a href="varsity.html">
+                    <img src="https://storage.googleapis.com/a1aa/image/SURuWaw71V6AM1mjM6VbtXPkeaKmtEum3HyRbbl5TRr2JV2JA.jpg" alt="Varsity">
+                    <p>Varsity</p>
+                </a>
+            </div>
+            <div class="item">
+                <a href="hoodie.html">
+                    <img src="https://storage.googleapis.com/a1aa/image/L6FYYrp6qBY0GFOHKcebHa1QnlxmqmRFPmjQheT6GIQyTqsTA.jpg" alt="Hoodie">
+                    <p>Hoodie</p>
+                </a>
+            </div >
+        </div>
+    </section>
+    <section class="text-center">
+        <h2>Social Media Hits</h2>
+        <button>View all</button>
+        <div class="grid-container">
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/KeGS1OREfrq3C0rWC41bThhrI4ipXSXRVDgdn3vhy7b1TqsTA.jpg" alt="Beige coloured long skirt">
+                <p>Beige coloured long skirt</p>
+                <p>Rs. 1500</p>
+            </div>
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/MMoFKgSQx6LRORz5H8XB4sTDoZun8eJU7VdSI2MxgAF7JV2JA.jpg" alt="Unisex quarter shorts">
+                <p>Unisex quarter shorts</p>
+                <p>Rs. 1299</p>
+            </div>
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/XwvdqMsfga2ZUid8bLZxeg1uMfmqDS0mmS2KYtYnxcoKnUZnA.jpg" alt="Camo puffer jacket">
+                <p>Camo puffer jacket</p>
+                <p>Rs. 2399</p>
+            </div>
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/fgVLZg9HS2zNOSXuSLL4RPuMcbZb1ome2TeSTmsqoWpGnUZnA.jpg" alt="Men black tee (Classic)">
+                <p>Men black tee (Classic)</p>
+                <p>Rs. 800</p>
+            </div>
+        </div>
+    </section>
+    <section class="text-center">
+        <h2 class="category-title">Categories</h2>
+        <div class="grid-container">
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/sMBnHuy5VFZhCRZst7y8AGd6yBu2zWo3SSPbKI3Emhf0JV2JA.jpg" alt="Oversized T-shirts">
+                <p>Oversized T-shirts</p>
+            </div>
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/QHm0f87RCF0VEyP73UOSrJ8LvYR19C9IepbD94ebmVRdnUZnA.jpg" alt="Trendy Baggy">
+                <p>Trendy Baggy</p>
+            </div>
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/SURuWaw71V6AM1mjM6VbtXPkeaKmtEum3HyRbbl5TRr2JV2JA.jpg" alt="Varsity">
+                <p>Varsity</p>
+            </div>
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/L6FYYrp6qBY0GFOHKcebHa1QnlxmqmRFPmjQheT6GIQyTqsTA.jpg" alt="Hoodie">
+                <p>Hoodie</p>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/oOOA8oUgbnrxLpGtnlLPKwljxrBAB4bbeYy79N5Kg4o4JV2JA.jpg" alt="Shorts">
+                <p>Shorts</p>
+            </div>
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/PVnx29X5cJ72I9xCQQy43cojCSGgzxS7sToUfnyVJ7L1JV2JA.jpg" alt="Jackets">
+                <p>Jackets</p>
+            </div>
+            <div class="item">
+                <img src="https://storage.googleapis.com/a1aa/image/P0p1VwfgqVzvdqTKOfIthUAYcKTnLTHFM4uu7HMm27DrTqsTA.jpg" alt="Pants">
+                <p>Pants</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <h2>Wanna give your garment a second chance??</h2>
+        <p>Sell options Coming Soon.... Only on Thrifter.</p>
+    </footer>
+</body>
+</html>

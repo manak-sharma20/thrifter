@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrifter - Oversized T-shirts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background-color: black;
+        }
+        header h1 {
+            font-family: 'Gilda Display', serif;
+            font-size: 32px;
+        }
+        header a {
+            color: white;
+            margin-left: 16px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        header a:hover {
+            color: #d1d5db;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+        .item {
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            padding: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .item img {
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 32px;
+            background-color: black;
+        }
+        footer h2 {
+            font-family: 'Gilda Display', serif;
+            font-size: 32px;
+        }
+        footer p {
+            margin-top: 16px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <input type="text" placeholder="search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <h1>Thrifter</h1>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="women.html">Women's Collection</a>
+            <a href="trending.html">Trending</a>
+            <a href="contact.html">Contact</a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+
+    <section class="text-center">
+        <h2>Oversized T-shirts</h2>
+        <div class="grid-container">
+            <div class="item">
+                <a href="#">
+                    <img src="https://storage.googleapis.com/a1aa/image/sMBnHuy5VFZhCRZst7y8AGd6yBu2zWo3SSPbKI3Emhf0JV2JA.jpg" alt="Oversized T-shirt 1">
+                    <p>Oversized T-shirt 1</p>
+                    <p>Rs. 1200</p>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://storage.googleapis.com/a1aa/image/sMBnHuy5VFZhCRZst7y8AGd6yBu2zWo3SSPbKI3Emhf0JV2JA.jpg" alt="Oversized T-shirt 2">
+                    <p>Oversized T-shirt 2</p>
+                    <p>Rs. 1300</p>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://storage.googleapis.com/a1aa/image/sMBnHuy5VFZhCRZst7y8AGd 6yBu2zWo3SSPbKI3Emhf0JV2JA.jpg" alt="Oversized T-shirt 3">
+                    <p>Oversized T-shirt 3</p>
+                    <p>Rs. 1400</p>
+                </a>
+            </div>
+            <!-- Add more items here -->
+        </div>
+    </section>
+
+    <footer>
+        <h2>Get in Touch</h2>
+        <p>Phone: +91 1234567890</p>
+        <p>Email: <a href="mailto:info@thrifter.com">info@thrifter.com</a></p>
+        <p>Address: 123, Thrifter Street, New York, USA</p>
+    </footer>
+</body>
+</html>
